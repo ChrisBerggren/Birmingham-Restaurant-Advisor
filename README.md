@@ -1,9 +1,9 @@
 # RestaurantAdvisor
 
-Welcome to RestaurantAdvisor, your guide to dining in Birmingham, Alabama! This Java program helps users discover the ideal restaurant based on their preferences and budget. Whether you're craving Mexican, Italian, fast food, BBQ, breakfast, or sandwiches, RestaurantAdvisor has you covered. With a diverse selection of local eateries and an intuitive interface, finding the perfect dining spot has never been easier!
+Welcome to RestaurantAdvisor, your guide to dining in Birmingham, Alabama! This Java program helps users discover the ideal restaurant based on their preferences and budget. Whether you're craving Mexican, Italian, Chinese, Indian fast food, BBQ, breakfast, or sandwiches, RestaurantAdvisor has you covered. With a diverse selection of local eateries and an intuitive interface, finding the perfect dining spot has never been easier!
 
 ## Features
-- Choose from a variety of cuisine types: Mexican, Italian, fast food, BBQ, breakfast, and sandwiches.
+- Choose from a variety of cuisine types: Mexican, Italian, Chinese, Idian, fast food, BBQ, breakfast, and sandwiches.
 - Select your preferred budget tier: low, medium, or high.
 - Receive personalized recommendations based on your preferences.
 - Enjoy a delightful dining experience at Birmingham's finest restaurants.
