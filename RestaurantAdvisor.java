@@ -8,11 +8,37 @@ public class RestaurantAdvisor {
         System.out.println("Welcome to the Birmingham Restaurant Advisor!");
         System.out.println("Please answer a few questions to help us suggest a restaurant for you.");
 
-        System.out.print("What type of cuisine are you in the mood for? (Mexican, Italian, Fast Food, BBQ, Breakfast, Sandwiches): ");
-        String cuisineType = scanner.nextLine();
+        // Default value
+        String cuisineType = "mexican";
+        Boolean validInput = false;
 
-        System.out.print("How much money are you willing to spend? (low, medium, high): ");
-        String budget = scanner.nextLine();
+        // Loops until user's input is valid (Mexican, Italian, Chinese, Indian, Fast Food, BBQ, Breakfast, Sandwiches)
+        while (!validInput){
+            System.out.print("What type of cuisine are you in the mood for? (Mexican, Italian, Chinese, Indian, Fast Food, BBQ, Breakfast, Sandwiches): ");
+            cuisineType = scanner.nextLine();
+            if (cuisineType.equalsIgnoreCase("mexican") || cuisineType.equalsIgnoreCase("italian") || cuisineType.equalsIgnoreCase("chinese") || cuisineType.equalsIgnoreCase("indian") || cuisineType.equalsIgnoreCase("fast food") || cuisineType.equalsIgnoreCase("bbq") || cuisineType.equalsIgnoreCase("breakfast") || cuisineType.equalsIgnoreCase("sandwiches")){
+                validInput = true;
+            }
+            else{
+                System.out.print("Invalid input!\n");
+            }
+        }
+        
+        // Default value
+        String budget = "low";
+        validInput = false;
+
+        // Loops until user's input is valid (low, medium, or high)
+        while (!validInput){
+            System.out.print("How much money are you willing to spend? (low, medium, high): ");
+            budget = scanner.nextLine();
+            if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("l") || budget.equalsIgnoreCase("m") || budget.equalsIgnoreCase("h")){
+                validInput = true;
+            }
+            else{
+                System.out.print("Invalid input!\n");
+            }
+        }
 
         // Display suggestions based on user preferences
         System.out.println("\nBased on your preferences, here are some restaurant options for you:");
@@ -36,6 +62,12 @@ public class RestaurantAdvisor {
             case "sandwiches":
                 System.out.println(getSandwichesRestaurant(budget));
                 break;
+            case "chinese":
+                System.out.println(getChineseRestaurant(budget));
+                break;
+            case "indian":
+                System.out.println(getIndianRestaurant(budget));
+                break;
             default:
                 System.out.println("Sorry, we couldn't find suitable options based on your preferences.");
         }
@@ -45,11 +77,11 @@ public class RestaurantAdvisor {
 
     // Method to suggest Mexican restaurants based on budget
     public static String getMexicanRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. Taco Bell\n2. Chipotle\n3. El Barrio";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. El Barrio\n2. Moe's Southwest Grill\n3. Los Arcos";
-        } else if (budget.equalsIgnoreCase("high")) {
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
             return "1. La Paz\n2. Cocina Superior\n3. Sol Y Luna";
         } else {
             return "No options found for the given budget.";
@@ -58,12 +90,12 @@ public class RestaurantAdvisor {
 
     // Method to suggest Italian restaurants based on budget
     public static String getItalianRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. Olive Garden\n2. Ranelli's\n3. Sanpeggio's";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. Carrabba's Italian Grill\n2. Johnny Brusco's New York Style Pizza\n3. Little Italy";
-        } else if (budget.equalsIgnoreCase("high")) {
-            return "1. Gianmarco's Restaurant\n2. Bottega Cafe\n3. Brio Tuscan Grille";
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
+            return "1. Gianmarco's Restaurant\n2. Bottega Cafe\n3. North Italia";
         } else {
             return "No options found for the given budget.";
         }
@@ -71,11 +103,11 @@ public class RestaurantAdvisor {
 
     // Method to suggest Fast Food restaurants based on budget
     public static String getFastFoodRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. McDonald's\n2. Cookout\n3. Wendy's";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. Chick-fil-A\n2. Tazikis\n3. Cicken Salad Chic";
-        } else if (budget.equalsIgnoreCase("high")) {
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
             return "1. Shake Shack\n2. Mooyah\n3. Five Guys";
         } else {
             return "No options found for the given budget.";
@@ -84,11 +116,11 @@ public class RestaurantAdvisor {
 
     // Method to suggest BBQ restaurants based on budget
     public static String getBBQRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. Dreamland BBQ\n2. Jim 'N Nick's Bar-B-Q\n3. Full Moon BBQ";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. Saw's BBQ\n2. Moe's Original Bar B Que\n3. Rib-It-Up";
-        } else if (budget.equalsIgnoreCase("high")) {
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
             return "1. Rodney Scott's Whole Hog BBQ\n2. Martin's Bar-B-Que Joint\n3. Archibald's BBQ";
         } else {
             return "No options found for the given budget.";
@@ -97,11 +129,11 @@ public class RestaurantAdvisor {
 
     // Method to suggest Breakfast restaurants based on budget
     public static String getBreakfastRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. Waffle House\n2. IHOP\n3. McDonald's (breakfast menu)";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. Cracker Barrel Old Country Store\n2. First Watch\n3. Another Broken Egg Cafe";
-        } else if (budget.equalsIgnoreCase("high")) {
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
             return "1. Another Broken Egg Cafe\n2. Big Bad Breakfast\n3. Highland Gourmet Scones";
         } else {
             return "No options found for the given budget.";
@@ -110,12 +142,38 @@ public class RestaurantAdvisor {
 
     // Method to suggest Sandwiches restaurants based on budget
     public static String getSandwichesRestaurant(String budget) {
-        if (budget.equalsIgnoreCase("low")) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
             return "1. Subway\n2. Jersey Mike's Subs\n3. Firehouse Subs";
-        } else if (budget.equalsIgnoreCase("medium")) {
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
             return "1. Jimmy John's\n2. Panera Bread\n3. Jason's Deli";
-        } else if (budget.equalsIgnoreCase("high")) {
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
             return "1. McAlister's Deli\n2. Which Wich Superior Sandwiches\n3. Potbelly Sandwich Shop";
+        } else {
+            return "No options found for the given budget.";
+        }
+    }
+
+    // Method to suggest Chinese restaurants based on budget
+    public static String getChineseRestaurant(String budget) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
+            return "1. Magic Wok\n2. China Moon\n3. yoe Xpress";
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
+            return "1. Shiki Sakura\n2. Panda Express\n3. P.F. Chang's";
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
+            return "1. Tattu Birmingham\n2. P.F. Chang's\n3. Mr. Chen’s Authentic Chinese Cooking";
+        } else {
+            return "No options found for the given budget.";
+        }
+    }
+
+    // Method to suggest Indian restaurants based on budget
+    public static String getIndianRestaurant(String budget) {
+        if (budget.equalsIgnoreCase("low") || budget.equalsIgnoreCase("l")) {
+            return "1. Sitar Indian Restaurant\n2. Silver Coin Indian Grill\n3. Silver Kati";
+        } else if (budget.equalsIgnoreCase("medium") || budget.equalsIgnoreCase("m")) {
+            return "1. Yummefy Indo Fresh Food & Bar\n2. Taj India\n3. Saffron Indian Kitchen";
+        } else if (budget.equalsIgnoreCase("high") || budget.equalsIgnoreCase("h")) {
+            return "1. Bay Leaf Modern Indian Cuisine & Bar\n2. Saffron Indian Kitchen\n3. Lasan Indian Restaurant & Cocktail Bar";
         } else {
             return "No options found for the given budget.";
         }
